@@ -1,11 +1,9 @@
 from flask import Flask,render_template,jsonify,request
 from dummy import data
-import sqlite3
+
 app = Flask(__name__)
 
 API_ROUTE = "/api/v1/resources/"
-
-
 
 def getAPIRoute(line):
     return API_ROUTE + line
@@ -18,10 +16,10 @@ def home():
 def api_test():
     print(request.args)
     if('country' in request.args):
-        fName = request.args['country']
+        name = request.args['country']
     else:
         return jsonify(data)
-    results = [item for item in data if fName==item['country']]
+    results = [item for item in data if name==item['country']]
     return jsonify(results)
 
 if (__name__ == "__main__"):

@@ -11,8 +11,6 @@ def openSql(fileName):
         data = ' '.join(f.readlines())
     return data
 
-initData = openSql("init.sql")
-
 class DBManager:
     def __init__(self):
         self.connection = sqlite3.connect(DB_FILE_NAME)
@@ -23,13 +21,14 @@ class DBManager:
         pass
     def addCountry(self,name,population):
         self.cursor.execute("INSERT INTO CountryPopulation(name,population) VALUES(?,?)",(name,population))
-
+    def getCountry(self,name):
+        return self.cursor.execute(f"SELECT * FROM CountryPopulation WHERE name={name}")
     def finish(self):
         self.connection.commit()
 
 def main():
     dbm = DBManager()
-    dbm.create()
+    # dbm.create()
     dbm.addCountry("America",1)
     dbm.addCountry("India",2)
     dbm.addCountry("America2",11)
