@@ -1,16 +1,10 @@
 from flask import Flask,render_template,jsonify,request
-
+from dummy import data
 app = Flask(__name__)
 
 API_ROUTE = "/api/v1/resources/"
 
-data = [{
-        'fName':'Jon',
-        'lName':"Kirk",
-    },{
-        'fName':'Yemi',
-        'lName':'Orekoya'
-    }]
+
 
 def getAPIRoute(line):
     return API_ROUTE + line
@@ -22,11 +16,11 @@ def home():
 @app.route(getAPIRoute("data/all"),methods=['GET'])
 def api_test():
     print(request.args)
-    if('fName' in request.args):
-        fName = request.args['fName']
+    if('country' in request.args):
+        fName = request.args['country']
     else:
         return jsonify(data)
-    results = [item for item in data if fName==item['fName']]
+    results = [item for item in data if fName==item['country']]
     return jsonify(results)
 
 if (__name__ == "__main__"):
