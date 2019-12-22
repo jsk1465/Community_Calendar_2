@@ -1,5 +1,5 @@
 tr{
-    height: 3vh;
+    height: 30px;
 }
 
 .weekDay:hover{
@@ -13,12 +13,12 @@ tr{
 
 .upperTime{
     position:relative;
-    top:-1VH;
+    top:-8px;
 }
 
 .lowerTime{
     position:relative;
-    top:1VH;    
+    top:10px;
 }
 
 .innerTime{
@@ -40,6 +40,10 @@ tr:nth-child(odd) td:not(:first-child){
 
 tr:nth-child(even) td:not(:first-child){
     background-color:#E1C0B4;
+}
+
+tr td:first-child, th:first-child{
+    background:pink;
 }
 
 td:first-child{
