@@ -2,7 +2,8 @@
 <html lang="en" dir="ltr">
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <title>Regular Week Calendar</title>
+        <title>Month Calendar</title>
+
         <!-- CSS files -->
         <link rel="stylesheet" type= "text/css"
         href="{{ url_for('static', filename='styles/all.css') }}">
@@ -11,14 +12,11 @@
     </head>
     <body>
         <div class="title">Month Calendar</div>
-        <div class="left"></div>
-        <div class="month"></div>
-        <div class="right"></div>
         <div class="divCalendar">
             <table class="calendar">
-                <thread class="weekDays">
+                <thead class="weekDays">
                     <tr></tr>
-                </thread>
+                </thead>
                 <tbody class="monthDays">
                     <tr>
                         <td>Monday (1)</td>
@@ -29,11 +27,12 @@
             </table>
         </div>
     </body>
+
+    <!-- Javascript files -->
+    <script type="text/javascript"
+    src="{{ url_for('static', filename='js/staticGlobals.js') }}"></script>
+    <script type="text/javascript"
+    src="{{ url_for('static', filename='js/all.js') }}"></script>
+    <script type="text/javascript"
+    src="{{ url_for('static', filename='js/monthCalendar.js') }}"></script>
 </html>
-<!-- Javascript files -->
-<script type="text/javascript"
-src="{{ url_for('static', filename='js/staticGlobals.js') }}"></script>
-<script type="text/javascript"
-src="{{ url_for('static', filename='js/all.js') }}"></script>
-<script type="text/javascript"
-src="{{ url_for('static', filename='js/monthCalendar.js') }}"></script>

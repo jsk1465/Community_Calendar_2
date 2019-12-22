@@ -8,7 +8,7 @@ tr{
 
 .time{
     margin: auto;
-    text-align:center;
+    text-align:right;
 }
 
 .upperTime{
@@ -34,18 +34,20 @@ tr{
     background-color: grey !important;
 }
 
-tr:nth-child(odd){
+tr:nth-child(odd) td:not(:first-child){
     background-color:#D7A791;
 }
-tr:nth-child(even){
+
+tr:nth-child(even) td:not(:first-child){
     background-color:#E1C0B4;
 }
 
 td:first-child{
-    background-color:#FFFFFFFF
+    /* opacity: 0.5; */
+    background-color:transparent;
 }
 
-.weekDayTr{
+.weekDayTr th:not(:first-child){
     background-color: #C3754A !important;
 }
 
