@@ -1,33 +1,3 @@
-body{
-    background: linear-gradient(45deg, #C3754A,#E1C0B4);
-    background-repeat: no-repeat;
-    height:100%;
-    background-attachment: fixed;
-    margin: 0;
-}
-
-.title{
-    margin: 10vh auto 5vh auto;
-    text-align:center;
-    font-size:59px;
-    font-family: "Times New Roman", Times, serif;
-}
-
-.calendar{
-    width: 85%;
-    margin: 0 auto;
-    border: "1";
-    border-collapse: collapse;
-}
-
-td , th{
-    border: 1px solid black;
-}
-
-th:nth-child(1),td:nth-child(1){
-    border: 0px solid black;
-}
-
 tr{
     height: 3vh;
 }
@@ -36,19 +6,21 @@ tr{
     background-color: grey;
 }
 
-
 .time{
     margin: auto;
     text-align:center;
 }
+
 .upperTime{
     position:relative;
     top:-1VH;
 }
+
 .lowerTime{
     position:relative;
     top:1VH;    
 }
+
 .innerTime{
     position:relative;
     top:-1.45VH;
@@ -61,22 +33,22 @@ tr{
 .weekDayClick{
     background-color: grey !important;
 }
+
 tr:nth-child(odd){
     background-color:#D7A791;
 }
 tr:nth-child(even){
     background-color:#E1C0B4;
 }
+
+td:first-child{
+    background-color:#FFFFFFFF
+}
+
 .weekDayTr{
     background-color: #C3754A !important;
 }
 
-body {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-    supported by Chrome, Opera and Firefox */
+th:nth-child(1),td:nth-child(1){
+    border: 0px solid black;
 }

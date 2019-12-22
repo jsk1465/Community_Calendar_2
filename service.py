@@ -18,7 +18,7 @@ def regWeek():
 
 @app.route("/monthCalendar")
 def monthCalendar():
-    return render_template("monthCalendar")
+    return render_template("monthCalendar.html")
 
 
 @app.route(getAPIRoute("data/all"),methods=['GET'])

@@ -1,29 +1,27 @@
-// static globals
-// classes
-var clsWeekDayClicked = "weekDayClick";
-var clsWeekDay = "weekDay";
-var clsMonday = "Monday";
-var clsTuesday = "Tuesday";
-var clsWednesday = "Wednesday";
-var clsThursday = "Thursday";
-var clsFriday = "Friday";
-var clsTime = "time";
-var clsTimes = "times";
-var clsCalendar = "calendar";
-var clsWeekDayHead = "weekDayTr";
-var clsUpperTime = "upperTime";
-var clsLowerTime = "lowerTime";
-// tags
-var tagTr = "tr";
-var tagTd = "td";
-var tagTh = "th";
-
-// data
-var extraSpace = "&nbsp;";
-var days = [clsMonday,clsTuesday,clsWednesday,clsThursday,clsFriday];
-
 // dynamic globals
 var initState = null;
+
+window.onload = function(){
+    genHead();
+    genBody();
+    
+    var weekDays = document.getElementsByClassName(clsWeekDay);
+
+    for(var i = 0; i<weekDays.length; i++){
+        var weekDay = weekDays[i];
+        weekDay.addEventListener("mouseup",handleUp);
+        weekDay.addEventListener("mousedown",handleDown);
+    }
+    // set up touch
+    function startup(){
+        for(var i = 0; i<weekDays.length; i++){
+            var weekDay = weekDays[i];
+            weekDay.addEventListener("touchend",handleUp);
+            weekDay.addEventListener("touchstart",handleDown);
+        }
+    }
+    document.addEventListener("DOMContentLoaded", startup);
+}
 
 function handleDown(){
     initState = this;
@@ -89,56 +87,6 @@ function handleUp(){
             }
         }
     }
-}
-
-function getTimeClass(hour,minutes){
-    var strH = parseInt(hour).toString(10);
-    var strM = parseInt(minutes)%60 == 30 ? "30" : "00";
-    return "t_" + strH + "_" + strM;
-}
-
-function getDay(classList){
-    for(var i = 0; i<classList.length; i++){
-        if(days.indexOf(classList[i])>=0){
-            return classList[i];
-        }
-    }
-    console.log(this,"does not contain a day");
-    return "";
-}
-
-function getTime(classList){
-    for(var i = 0; i<classList.length; i++){
-        var time = classList[i];
-        if(time.charAt(0)=="t" && time.charAt(1)=="_"){
-            var times = time.split("_");
-            return times[1] + ":" + times[2];
-        }
-    }
-    console.log(this,"does not contain a time");
-    return "";
-}
-
-window.onload = function(){
-    genHead();
-    genBody();
-    
-    var weekDays = document.getElementsByClassName(clsWeekDay);
-
-    for(var i = 0; i<weekDays.length; i++){
-        var weekDay = weekDays[i];
-        weekDay.addEventListener("mouseup",handleUp);
-        weekDay.addEventListener("mousedown",handleDown);
-    }
-    // set up touch
-    function startup(){
-        for(var i = 0; i<weekDays.length; i++){
-            var weekDay = weekDays[i];
-            weekDay.addEventListener("touchstart",handleDown);
-            weekDay.addEventListener("touchend",handleUp);
-        }
-    }
-    document.addEventListener("DOMContentLoaded", startup);
 }
 
 function getSelected(){
@@ -232,21 +180,4 @@ function getRowContent(timeCls,timeContent){
     }
     content+=finishTag(tagTr);
     return content;
-}
-
-function concatClasses(list){
-    return list.join(" ");
-}
-
-function createTag(tag,className,content){
-    return startTag(tag,className) + content + finishTag(tag);
-}
-
-function startTag(tag,className){
-    var dataCls = className == "" ? "" : "class='" + className + "'";
-    return "<"+tag +" " + dataCls+ ">";
-}
-
-function finishTag(tag){
-    return "</"+tag + ">";
 }
