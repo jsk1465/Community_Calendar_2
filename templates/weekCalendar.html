@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Regular Week Calendar</title>
+        <!-- CSS files -->
+        <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='styles/weekCalendar.css') }}">
+    </head>
+    <body>
+        <div class="title">Regular Week Calendar</div>
+        <div class="divCalendar">
+            <table class="calendar">
+                <thread class="weekDays">
+                    <tr></tr>
+                </thread>
+                <tbody class="times">
+                    <tr></tr>
+                </tbody>
+    
+            </table>
+        </div>
+    </body>
+</html>
+<!-- Javascript files -->
+<script type="text/javascript"
+src="{{ url_for('static', filename='js/regularWeek.js') }}"></script>

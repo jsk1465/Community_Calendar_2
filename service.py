@@ -11,9 +11,16 @@ def getAPIRoute(line):
 @app.route("/")
 def home():
     return render_template("home.html")
+
 @app.route("/regWeek")
 def regWeek():
-    return render_template("regularWeek.html")
+    return render_template("weekCalendar.html")
+
+@app.route("/monthCalendar")
+def monthCalendar():
+    return render_template("monthCalendar")
+
+
 @app.route(getAPIRoute("data/all"),methods=['GET'])
 def api_test():
     print(request.args)
